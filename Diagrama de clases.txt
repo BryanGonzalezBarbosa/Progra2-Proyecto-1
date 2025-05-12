@@ -1,0 +1,74 @@
+public abstract class Usuario {
+    protected String nombre;
+    protected String correo;
+    protected String contraseña;
+
+    public Usuario(String nombre, String correo, String contraseña) {}
+    
+    public String getNombre() { return null; }
+    public String getCorreo() { return null; }
+    public String getContraseña() { return null; }
+}
+
+public class Empleado extends Usuario {
+    private List<Vuelo> vuelosGestionados;
+
+    public Empleado(String nombre, String correo, String contraseña) {}
+    
+    public void altaVuelo(Vuelo vuelo) {}
+    public boolean anularServicioVuelo(Vuelo vuelo) { return false; }
+}
+
+public class Pasajero extends Usuario {
+    private String pasaporte;
+
+    public Pasajero(String nombre, String correo, String contraseña, String pasaporte) {}
+
+    public String getPasaporte() { return null; }
+}
+
+public class Vuelo {
+    private String id;
+    private String origen;
+    private String destino;
+    private LocalDateTime fechaHora;
+    private int lugaresTotales;
+    private int lugaresDisponibles;
+    private List<Reserva> reservas;
+
+    public Vuelo(String id, String origen, String destino, LocalDateTime fechaHora, int lugaresTotales) {}
+
+    public boolean reservar(Pasajero pasajero, int cantidad) { return false; }
+    public boolean anularServicioVuelo() { return false; }
+
+    public String getId() { return null; }
+    public String getOrigen() { return null; }
+    public String getDestino() { return null; }
+    public int getLugaresDisponibles() { return 0; }
+}
+
+public class Reserva {
+    private Pasajero pasajero;
+    private Vuelo vuelo;
+    private int cantidadReservada;
+
+    public Reserva(Pasajero pasajero, Vuelo vuelo, int cantidadReservada) {}
+
+    public Pasajero getPasajero() { return null; }
+    public Vuelo getVuelo() { return null; }
+    public int getCantidadReservada() { return 0; }
+}
+
+public class SistemaGestionVuelos {
+    private List<Usuario> usuarios;
+    private List<Vuelo> vuelos;
+    private Usuario usuarioActual;
+
+    public SistemaGestionVuelos() {}
+
+    public boolean login(String correo, String contraseña) { return false; }
+    public void registrarUsuario(Usuario usuario) {}
+    public void agregarVuelo(Vuelo vuelo) {}
+    public List<Vuelo> buscarVuelosPorOrigenDestino(String origen, String destino) { return null; }
+    public List<Vuelo> listarVuelosDisponibles() { return null; }
+}
